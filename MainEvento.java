@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-// Classe Participante
 class Participante {
     private String nome;
 
@@ -15,7 +14,6 @@ class Participante {
     }
 }
 
-// Classe Local
 class Local {
     private String nome;
     private String endereco;
@@ -34,7 +32,6 @@ class Local {
     }
 }
 
-// Classe Evento
 class Evento {
     private String nome;
     private String data;
@@ -50,7 +47,6 @@ class Evento {
         this.participantes = new ArrayList<>();
     }
 
-    // Método para cadastrar participante
     public void cadastrarParticipante(Participante participante) {
         if (vagasDisponiveis > 0) {
             participantes.add(participante);
@@ -61,7 +57,6 @@ class Evento {
         }
     }
 
-    // Método para remover participante
     public void removerParticipante(String nomeParticipante) {
         boolean participanteRemovido = participantes.removeIf(participante -> participante.getNome().equals(nomeParticipante));
         if (participanteRemovido) {
@@ -72,12 +67,11 @@ class Evento {
         }
     }
 
-    // Método para consultar vagas disponíveis
     public void consultarVagas() {
         System.out.println("Vagas disponíveis: " + vagasDisponiveis);
     }
 
-    // Método para gerar relatório de participação
+
     public void gerarRelatorioParticipacao() {
         System.out.println("\n--- Relatório de Participação ---");
         System.out.println("Evento: " + nome);
@@ -102,15 +96,13 @@ class Evento {
     }
 }
 
-// Classe principal para interação com o usuário
 public class MainEvento {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Criando local do evento
+       
         Local local = new Local("Centro de Convenções", "Rua Exemplo, 123");
 
-        // Criando evento
         Evento evento = new Evento("Workshop Java", "15/09/2024", local, 10);
 
         int opcao;
@@ -123,7 +115,7 @@ public class MainEvento {
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
-            scanner.nextLine(); // Consome a nova linha após o número
+            scanner.nextLine(); 
 
             switch (opcao) {
                 case 1:
